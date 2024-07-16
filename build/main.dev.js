@@ -4,17 +4,17 @@ const config = require('./webpack.dev');
 const path = require('path');
 const { readFile } = require('./tools/rewrite.cjs');
 
-const inputs = process.argv.slice(3);
+const inputs = process.argv.slice(2);
 const pkgFile = readFile(
   path.resolve(__dirname, '../packages', inputs[0], 'package.json'),
 );
-if (!pkgFile.build) {
+if (!pkgFile.build || !pkgFile.build.name) {
   throw Error(' build params is not nullable');
 }
 /**@type { import("webpack").Configuration } */
 const _config = {
   entry: {
-    name: {
+    [pkgFile.build.name]: {
       import: path.resolve(__dirname, '../packages', inputs[0], pkgFile.build.entry),
       library: {
         name: pkgFile.build.name,
@@ -29,13 +29,13 @@ const _config = {
     },
   },
   output: {
-    path: path.resolve(__dirname, '..', 'dist', inputs[0]),
+    path: path.resolve(__dirname, '../packages', inputs[0], 'dist'),
   },
 };
 
 webpack(merge(config, _config), (err, stats) => {
   if (err || stats?.hasErrors()) {
-    // ...
+    console.log('error', err);
   }
   // 处理完成
 });

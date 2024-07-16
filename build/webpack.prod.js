@@ -1,2 +1,9 @@
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common');
+
 /**@type { import("webpack").Configuration } */
-module.exports = {};
+const config = {
+  mode: 'production',
+};
+
+module.exports = merge(common, config);

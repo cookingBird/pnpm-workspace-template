@@ -1,0 +1,17 @@
+##################################################
+# <type> is the topic of this change, such as:
+# build - 变更项目构建工具或包管理工具等
+# chore - 变更构建流程或辅助工具
+# ci - 更改持续集成配置和package.json中的script
+# docs - 文档变更
+# feat - 新增功能
+# fix - 修复问题
+# perf - 改进优化
+# refactor - 代码重构
+# revert - 版本回退
+# style - 代码格式化
+# test - 完善测试用例
+# <scope> is the scope of this change
+# <subject> is the detail of this change
+##################################################
+<type>(<scope>): <subject>

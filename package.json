@@ -5,6 +5,7 @@
   "packageManager": "pnpm",
   "main": "index.js",
   "scripts": {
+    "prepare": "npx husky && git config commit.template git-commit-template.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +13,17 @@
   "license": "ISC",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3",
+    "prettier": "3.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-typescript": "^18.0.0"
   }
 }
